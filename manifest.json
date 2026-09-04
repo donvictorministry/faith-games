@@ -1,0 +1,25 @@
+{
+  "name": "Faith Games Center",
+  "short_name": "Faith Games",
+  "description": "21st Century Christian Gaming Platform",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1877F2",
+  "theme_color": "#1877F2",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/vxWX0d11/icon-192.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.ibb.co/vxWX0d11/icon-192.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
