@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Faith Games Center</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1877f2">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="splashScreen">
+  <img src="https://i.ibb.co/8FGwGC8/Screenshot-20260904-22212.png
+/150" alt="Developer" class="splash-photo" id="splashPhoto">
+  <div class="splash-mission">
+    <h1 id="splashName">Faith Games Center</h1>
+    <p id="splashMissionText">Building the Kingdom of God through innovative Christian gaming.</p>
+  </div>
+  <div class="splash-countdown" id="splashCountdown">3</div>
+</div>
+
+<div id="header">
+  <div class="header-left">
+    <button id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    <div id="headerTitle"><i class="fas fa-cross"></i><span id="headerTitleText">Faith Games</span></div>
+  </div>
+  <div class="header-right">
+    <button class="header-btn" id="themeToggle" aria-label="Theme"><i class="fas fa-moon"></i></button>
+  </div>
+</div>
+
+<div id="sidebarOverlay"></div>
+
+<div id="sidebar">
+  <div class="sidebar-header">
+    <h2><i class="fas fa-gamepad"></i> Menu</h2>
+    <button id="closeSidebar" aria-label="Close"><i class="fas fa-times"></i></button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-title"><i class="fas fa-gamepad"></i> Premium Games</div>
+    <button class="game-btn" data-game="faithRunner"><i class="fas fa-running"></i><span>Faith Runner</span></button>
+    <button class="game-btn" data-game="prayerQuest"><i class="fas fa-praying-hands"></i><span>Prayer Quest</span></button>
+    <button class="game-btn" data-game="bibleHeroes"><i class="fas fa-user-shield"></i><span>Bible Heroes Arena</span></button>
+    <button class="game-btn" data-game="worshipWarriors"><i class="fas fa-music"></i><span>Worship Warriors</span></button>
+    <button class="game-btn" data-game="salvationJourney"><i class="fas fa-route"></i><span>Salvation Journey</span></button>
+    <button class="game-btn" data-game="scriptureMemory"><i class="fas fa-brain"></i><span>Scripture Memory</span></button>
+    <button class="game-btn" data-game="bibleTrivia"><i class="fas fa-question-circle"></i><span>Bible Trivia Challenge</span></button>
+    <button class="game-btn" data-game="parablesPuzzle"><i class="fas fa-puzzle-piece"></i><span>Parables Puzzle</span></button>
+    <button class="game-btn" data-game="commandmentsQuest"><i class="fas fa-tablet-alt"></i><span>Commandments Quest</span></button>
+    <button class="game-btn" data-game="prophetsTimeline"><i class="fas fa-clock"></i><span>Prophets Timeline</span></button>
+    <button class="game-btn" data-game="fruitGarden"><i class="fas fa-seedling"></i><span>Fruit of the Spirit Garden</span></button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-title"><i class="fas fa-book-bible"></i> Advanced Quiz</div>
+    <button class="game-btn" id="advancedQuizBtn"><i class="fas fa-graduation-cap"></i><span>University Bible Quiz</span></button>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-title"><i class="fas fa-download"></i> Install App</div>
+    <button class="game-btn" id="installAppBtn" style="display:none;"><i class="fas fa-mobile-alt"></i><span>Install on Device</span></button>
+    <button class="game-btn" id="closeSidebarBottomBtn"><i class="fas fa-times-circle"></i><span>Close Menu</span></button>
+  </div>
+</div>
+
+<div id="mainContent">
+
+  <div id="homeScreen" class="screen active">
+    <div class="home-icon"><i class="fas fa-cross"></i></div>
+    <h1 class="home-title" id="homeTitleText">Faith Games Center</h1>
+    <p class="home-subtitle" id="homeSubtitleText">We have ten powerful premium Christian games. Open the menu to launch the game of your choice!</p>
+    <button class="home-cta" id="openMenuBtn"><i class="fas fa-gamepad"></i><span>Open Games Menu</span></button>
+  </div>
+
+  <!-- GAME 1: FAITH RUNNER -->
+  <div id="faithRunner" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="faithRunner"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Faith Runner</h2></div>
+      <div class="game-score"><i class="fas fa-star"></i><span id="faithRunnerScore">0</span></div>
+    </div>
+    <div class="game-canvas" id="faithRunnerCanvas">
+      <div class="runner-lane" style="left:25%;"></div><div class="runner-lane" style="left:50%;"></div><div class="runner-lane" style="left:75%;"></div>
+      <div class="runner-player" id="runnerPlayer"><i class="fas fa-user"></i></div>
+    </div>
+  </div>
+
+  <!-- GAME 2: PRAYER QUEST -->
+  <div id="prayerQuest" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="prayerQuest"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Prayer Quest</h2></div>
+      <div class="game-score"><i class="fas fa-star"></i><span id="prayerQuestScore">0</span></div>
+    </div>
+    <div class="game-canvas" id="prayerQuestCanvas">
+      <div class="prayer-card">
+        <div class="prayer-icon"><i class="fas fa-praying-hands"></i></div>
+        <div class="prayer-text" id="prayerText">Loading...</div>
+        <div class="prayer-options" id="prayerOptions"></div>
+        <div class="prayer-feedback" id="prayerFeedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 3: BIBLE HEROES ARENA -->
+  <div id="bibleHeroes" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="bibleHeroes"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Bible Heroes Arena</h2></div>
+      <div class="game-score"><i class="fas fa-star"></i><span id="bibleHeroesScore">0</span></div>
+    </div>
+    <div class="game-canvas" id="bibleHeroesCanvas">
+      <div class="hero-selection" id="heroSelection"></div>
+      <div class="battle-area" id="battleArea">
+        <div class="battle-question" id="battleQuestion"></div>
+        <div class="battle-options" id="battleOptions"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 4: WORSHIP WARRIORS -->
+  <div id="worshipWarriors" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="worshipWarriors"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Worship Warriors</h2></div>
+      <div class="game-score"><i class="fas fa-star"></i><span id="worshipWarriorsScore">0</span></div>
+    </div>
+    <div class="game-canvas" id="worshipWarriorsCanvas">
+      <div class="worship-display"><div class="worship-verse" id="worshipVerse"><div class="worship-verse-text" id="worshipVerseText"></div><div class="worship-verse-ref" id="worshipVerseRef"></div></div></div>
+      <div class="worship-progress" id="worshipProgress">Notes Played: 0/20</div>
+      <div class="worship-controls" id="worshipControls">
+        <button class="worship-note" data-note="C">C</button><button class="worship-note" data-note="D">D</button>
+        <button class="worship-note" data-note="E">E</button><button class="worship-note" data-note="F">F</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 5: SALVATION JOURNEY -->
+  <div id="salvationJourney" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="salvationJourney"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Salvation Journey</h2></div>
+      <div class="game-score"><i class="fas fa-check-circle"></i><span id="salvationJourneyScore">0/10</span></div>
+    </div>
+    <div class="game-canvas" id="salvationJourneyCanvas"><div class="journey-path" id="journeyPath"></div></div>
+  </div>
+
+  <!-- GAME 6: SCRIPTURE MEMORY -->
+  <div id="scriptureMemory" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="scriptureMemory"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Scripture Memory</h2></div>
+      <div class="game-score"><i class="fas fa-star"></i><span id="scriptureMemoryScore">0</span></div>
+    </div>
+    <div class="game-canvas" id="scriptureMemoryCanvas">
+      <div class="memory-card-container">
+        <div class="memory-card" id="memoryCard">
+          <div class="memory-card-front"><div class="memory-card-icon"><i class="fas fa-book-bible"></i></div><div class="memory-card-text">Tap to Reveal Verse</div></div>
+          <div class="memory-card-back"><div class="memory-card-text" id="memoryVerseText"></div><div class="memory-card-reference" id="memoryVerseRef"></div></div>
+        </div>
+      </div>
+      <div class="memory-progress" id="memoryProgress">Verse 1 of 20</div>
+      <div class="memory-controls">
+        <button class="memory-btn" id="memoryPrevBtn"><i class="fas fa-arrow-left"></i> Prev</button>
+        <button class="memory-btn" id="memoryNextBtn">Next <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 7: BIBLE TRIVIA -->
+  <div id="bibleTrivia" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="bibleTrivia"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Bible Trivia</h2></div>
+      <div class="game-score"><i class="fas fa-star"></i><span id="bibleTriviaScore">0</span></div>
+    </div>
+    <div class="game-canvas" id="bibleTriviaCanvas">
+      <div class="trivia-header">
+        <div class="trivia-timer"><i class="fas fa-clock"></i><span id="triviaTimer">30</span></div>
+        <div class="trivia-lives"><i class="fas fa-heart"></i><span id="triviaLives">3</span></div>
+      </div>
+      <div class="trivia-card">
+        <div class="trivia-category" id="triviaCategory">Old Testament</div>
+        <div class="trivia-question" id="triviaQuestion"></div>
+        <div class="trivia-options" id="triviaOptions"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 8: PARABLES PUZZLE -->
+  <div id="parablesPuzzle" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="parablesPuzzle"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Parables Puzzle</h2></div>
+      <div class="game-score"><i class="fas fa-star"></i><span id="parablesPuzzleScore">0</span></div>
+    </div>
+    <div class="game-canvas" id="parablesPuzzleCanvas">
+      <div class="puzzle-board">
+        <div class="puzzle-title">Match the Parable to Its Meaning</div>
+        <div class="puzzle-pieces" id="puzzlePieces"></div>
+        <div class="puzzle-meaning" id="puzzleMeaning"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME 9: COMMANDMENTS QUEST -->
+  <div id="commandmentsQuest" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="commandmentsQuest"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Commandments Quest</h2></div>
+      <div class="game-score"><i class="fas fa-check-circle"></i><span id="commandmentsScore">0/10</span></div>
+    </div>
+    <div class="game-canvas" id="commandmentsCanvas"><div class="commandments-list" id="commandmentsList"></div></div>
+  </div>
+
+  <!-- GAME 10: PROPHETS TIMELINE -->
+  <div id="prophetsTimeline" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="prophetsTimeline"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Prophets Timeline</h2></div>
+      <div class="game-score"><i class="fas fa-check-circle"></i><span id="prophetsScore">0/15</span></div>
+    </div>
+    <div class="game-canvas" id="prophetsCanvas"><div class="timeline-container"><div class="timeline-line"></div><div id="timelineEvents"></div></div></div>
+  </div>
+
+  <!-- GAME 11: FRUIT GARDEN -->
+  <div id="fruitGarden" class="game-container">
+    <div class="game-header">
+      <div class="game-header-left"><button class="game-back-btn" data-back="fruitGarden"><i class="fas fa-arrow-left"></i></button><h2 class="game-title">Fruit Garden</h2></div>
+      <div class="game-score"><i class="fas fa-seedling"></i><span id="fruitGardenScore">0/9</span></div>
+    </div>
+    <div class="game-canvas" id="fruitGardenCanvas">
+      <div class="garden-grid" id="gardenGrid"></div>
+      <div class="garden-info">
+        <div class="garden-info-title">Plant the Fruits of the Spirit</div>
+        <div class="garden-info-text" id="gardenInfoText">Tap each seed to learn about it, then water to grow!</div>
+        <button class="garden-water-btn" id="gardenWaterBtn"><i class="fas fa-tint"></i> Water All Seeds</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="aboutScreen" class="screen">
+    <div class="about-card">
+      <div class="about-icon"><i class="fas fa-code"></i></div>
+      <h2 class="about-title">About the Developer</h2>
+      <p class="about-text" id="aboutText1">A dedicated Christian game developer passionate about creating engaging, educational, and spiritually enriching gaming experiences for believers worldwide.</p>
+      <p class="about-text" id="aboutText2">Combining cutting-edge technology with timeless biblical truths.</p>
+      <div class="about-social">
+        <button class="social-icon-btn email" id="aboutEmailBtn" aria-label="Email"><i class="fas fa-envelope"></i></button>
+        <button class="social-icon-btn phone" id="aboutPhoneBtn" aria-label="Phone"><i class="fas fa-phone"></i></button>
+        <button class="social-icon-btn whatsapp" id="aboutWhatsAppBtn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></button>
+        <button class="social-icon-btn facebook" id="aboutFacebookBtn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="missionScreen" class="screen">
+    <div class="mission-card">
+      <div class="mission-icon"><i class="fas fa-bullseye"></i></div>
+      <h2 class="mission-title">Our Mission</h2>
+      <div class="mission-content" id="missionContentText">
+        <h3>Vision</h3><p>To create the world's most engaging Christian gaming platform that transforms lives.</p>
+        <h3>Purpose</h3>
+        <ul><li>Educate believers through interactive gameplay</li><li>Make scripture memorization fun</li><li>Build a community of faith-filled gamers</li><li>Provide free quality Christian entertainment</li></ul>
+      </div>
+      <div class="mission-cta">
+        <button class="mission-btn whatsapp" id="missionWhatsAppBtn"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></button>
+        <button class="mission-btn" id="missionEmailBtn"><i class="fas fa-envelope"></i><span>Email</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="supportScreen" class="screen">
+    <div class="support-card">
+      <div class="support-icon"><i class="fas fa-hand-holding-heart"></i></div>
+      <h2 class="support-title">Support Our Ministry</h2>
+      <p class="support-text" id="supportText1">Faith Games Center is a free ministry. Your support keeps this project accessible and free for every user worldwide.</p>
+    </div>
+    <div class="support-card">
+      <div class="bank-details">
+        <div class="bank-details-header"><h3 class="bank-details-title"><i class="fas fa-university"></i> Bank Details</h3><button class="reveal-btn" id="revealBankBtn">Tap to Reveal</button></div>
+        <div class="bank-info" id="bankInfo">
+          <div class="bank-item"><div><div class="bank-item-label">Bank Name</div><div class="bank-item-value" id="bankNameVal">Union Bank</div></div><button class="copy-btn" data-copy="Union Bank"><i class="fas fa-copy"></i></button></div>
+          <div class="bank-item"><div><div class="bank-item-label">Account Name</div><div class="bank-item-value" id="bankAcctNameVal">DVG</div></div><button class="copy-btn" data-copy="DVG"><i class="fas fa-copy"></i></button></div>
+          <div class="bank-item"><div><div class="bank-item-label">Account Number</div><div class="bank-item-value" id="bankAcctNumVal">1000510055</div></div><button class="copy-btn" data-copy="1000510055"><i class="fas fa-copy"></i></button></div>
+        </div>
+      </div>
+      <div class="support-cta">
+        <button class="support-btn whatsapp" id="supportWhatsAppBtn"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></button>
+        <button class="support-btn email" id="supportEmailBtn"><i class="fas fa-envelope"></i><span>Email</span></button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="quizModal">
+  <div class="quiz-container">
+    <div class="quiz-header"><div class="quiz-header-title"><i class="fas fa-graduation-cap"></i> Bible Quiz</div><button class="quiz-close-btn" id="quizCloseBtn"><i class="fas fa-times"></i></button></div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+    <div class="quiz-content">
+      <div class="quiz-question-number" id="quizQuestionNumber">Question 1 of 10</div>
+      <div class="quiz-question-text" id="quizQuestionText"></div>
+      <div class="quiz-options" id="quizOptionsContainer"></div>
+    </div>
+  </div>
+</div>
+
+<div id="verseAutoPopup"><div class="verse-auto-card"><div class="verse-auto-ref" id="verseAutoRef"></div><div class="verse-auto-text" id="verseAutoText"></div></div></div>
+
+<div id="gameOverModal">
+  <div class="game-over-card">
+    <div class="game-over-icon"><i class="fas fa-trophy"></i></div>
+    <h2 class="game-over-title">Game Complete!</h2>
+    <div class="game-over-score" id="gameOverScoreDisplay">0</div>
+    <p class="game-over-message" id="gameOverMessage">May God bless your journey!</p>
+    <div class="game-over-actions">
+      <button class="game-over-btn" id="playAgainBtn"><i class="fas fa-redo"></i> Play Again</button>
+      <button class="game-over-btn secondary" id="backToHomeBtn"><i class="fas fa-home"></i> Back to Home</button>
+    </div>
+  </div>
+</div>
+
+<div id="bottomNav">
+  <button class="nav-item active" data-nav="home"><i class="fas fa-home"></i><span>Home</span></button>
+  <button class="nav-item" data-nav="about"><i class="fas fa-info-circle"></i><span>About</span></button>
+  <button class="nav-item" data-nav="mission"><i class="fas fa-bullseye"></i><span>Mission</span></button>
+  <button class="nav-item" data-nav="support"><i class="fas fa-hand-holding-heart"></i><span>Support</span></button>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
